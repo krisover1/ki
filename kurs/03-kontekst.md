@@ -36,6 +36,8 @@ Legg merke til tre ting:
 2. Vi trenger ikke trenger å spesifisere hvordan modellen skal hente versjonen fra internett.
 3. Vi må godta at KI-modellen bruker internett for å hente ekstra informasjon. Hvorfor er det slik?
 
+Tips: For nå kan du endre _Default Approvals_ til _Bypass Approvals_, som er trygt siden vi kjører agenten i Codespaces på et eksempelprosjekt.
+
 ## Oppgave: Lagre resultatene dine for scoreboard
 ```shell
 git add tidtaker/templating.md
