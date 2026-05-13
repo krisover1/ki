@@ -21,23 +21,28 @@ curl --location https://raw.githubusercontent.com/mattpocock/skills/refs/heads/m
 
 Prøv nå denne instruksen:
 
-> /grill-me Jeg ønsker å benytte tidtakingene til å automatisk fylle inn mine timelister i en webapplikasjon. Jeg ønsker at timene skal rundes opp til nærmeste halvtime. Kan du hjelpe meg å utforske hvordan dette kan løses?
+> /grill-me Jeg ønsker å benytte tidtakingene til å automatisk fylle inn mine timelister i en webapplikasjon. Jeg ønsker at timene skal rundes til nærmeste halvtime. Nedlasting av tidtaking skal laste ned en måned. Jeg ønsker å lage en plugin for nettleser, slik at jeg kan logge inn i timeføringssystemet og dra over filen jeg lastet ned. Kan du hjelpe meg å utforske hvordan dette kan løses?
 
-Merk: Noen AI-agenter lar deg kjøre en bestemt skill med /<navn-på-skill>, men aktivering kan også skje ved at beskrivelsen til skill har noe slikt som "bruk denne instruksen hver gang du lager git commits" eller at en skriver "bruk grill-me skill".
+Merk: _/grill-me_ aktiverer skillen. Aktivering kan også skje ved at beskrivelsen til skill inneholder "bruk denne instruksen hver gang du lager git commits" eller at din instruks er "bruk grill-me skill".
 
-De fleste kjipe timeføringssystemer har ingen API-er, så du må styre agenten til å gjøre en web-tilnærming. Hvis du kommer dit, kan du åpne timeføringsprogrammet ditt i VSCode via:
+## Oppgave: Legge til del av nettside som kontekst
+De fleste kjipe timeføringssystemer har ingen API-er, derfor har vi valgt å automatisere via en plugin i nettleser. Grill-me er ikke deterministisk, men sannsynligvis vil den spørre om hvordan timeføringsprogram du bruker, samt om hvordan timene skal legges inn. Da kan du mate det spesifikke HTML-elementet fra timeføringsprogrammet som kontekst:
 
 1. _Ctrl/Cmd + Shift + P_
 2. _Browser: Open Integrated Browser_
-3. Gå til og logg inn på siden.
+3. Gå til og logg inn på timeføringssiden.
 
-Nå kan du legge ved kontekst fra siden ved å trykke på _Add element to chat_ og deretter velge et element på siden. Dette hjelper agenten å finne ut hvordan timeføringene skal legges inn.
+Oppe til høyre er det en knapp _Add element to chat_ som lar deg velge element fra siden med musen. Dette hjelper agenten å finne ut hvordan timeføringene skal legges inn.
 
-Hvis du er lei av å svare på spørsmål, kan du be om å avslutte:
+## Oppgave: Avslutte
+Grill-me er omstendig og en kan sitte i en time og svare på spørsmål i noen tilfeller. Når du har gitt informasjon om hvordan timene skal føres inn, be om å avslutte:
 
 > Det er nok nå. Lag en oppsummering av det du har så langt, og gjør antakelser for det du ikke vet. Skriv oppsummeringen her, men lagre resultatet også til eksport.md.
 
 Lagre resultatet i git og push det.
+
+## Når bruker en skills?
+Tenk "jeg kommer til å bruke denne instruksen igjen, men den trengs ikke alltid". Jeg har brukt skills til å oppgradere java, standardisere oppsett, sørge for at siste versjon benyttes for java-biblioteker, oppgradering av github workflows, osv.
 
 ## Tips for skills
 1. En skill er bare en vanlig instruks, tekst du kan skrive selv.
@@ -45,7 +50,8 @@ Lagre resultatet i git og push det.
 3. En kan be om input fra brukeren underveis.
 4. Skills kan installeres i din hjemmekatalog, slik at du kan benytte de på tvers av prosjekter.
 5. Brukere som vet input up-front kan gi de i initiell instruks: "upgrade java, case number is GLAD-491"
+6. Det finnes mange kataloger over skills på nett du kan prøve, eksempelvis [skills.sh](https://skills.sh).
+7. KI-modeller er flinke til å skrive skills, her er en [skill for å skrive skills](https://github.com/mattpocock/skills/blob/main/skills/productivity/write-a-skill/SKILL.md) 🤓
 
-Tenk "jeg kommer til å bruke denne instruksen igjen, men den trengs ikke alltid". Jeg har brukt skills til å oppgradere java, standardisere oppsett, sørge for at siste versjon benyttes for java-biblioteker, oppgradering av github workflows, osv.
 
 Neste steg er [07-planer.md](07-planer.md).
