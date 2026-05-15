@@ -1,3 +1,4 @@
 {
-  "terminal.integrated.defaultProfile.linux": "fish"
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "workbench.browser.enableChatTools": true
 }
