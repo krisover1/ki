@@ -60,7 +60,7 @@ $var := .Verdi                   <!-- lokal variabel (kun i range/with/if) -->
 |---|---|
 | `formatDuration start stop` | Viser varighet som `1t 23m` |
 | `formatTime dt` | Viser klokkeslett som `14:05` |
-| `formatDate dt` | Viser dato som `man 2. jan` |
+| `formatDate dt` | Viser dato på norsk, f.eks. `21. april 2026` |
 | `localTime dt` | Returnerer datetime-streng for `<input type="datetime-local">` |
 | `add a b` | Addisjon |
 | `sub a b` | Subtraksjon |
