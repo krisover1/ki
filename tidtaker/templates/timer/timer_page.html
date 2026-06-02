@@ -68,5 +68,38 @@
   document.getElementById('search-input')?.addEventListener('input', function() {
     document.getElementById('search-q').value = this.value;
   });
+
+  // Live-oppdater aktiv timer hvert sekund
+  function formatDuration(startMs) {
+    const totalSec = Math.floor((Date.now() - startMs) / 1000);
+    const h = Math.floor(totalSec / 3600);
+    const m = Math.floor((totalSec % 3600) / 60);
+    const s = totalSec % 60;
+    const pad = n => String(n).padStart(2, '0');
+    if (h > 0) return `${h}t ${pad(m)}m ${pad(s)}s`;
+    if (m > 0) return `${m}m ${pad(s)}s`;
+    return `${s}s`;
+  }
+
+  function startTimerTick() {
+    const el = document.getElementById('active-timer');
+    if (!el || !el.dataset.startTime) return;
+    const startMs = new Date(el.dataset.startTime).getTime();
+    if (isNaN(startMs)) return;
+    clearInterval(window._timerInterval);
+    window._timerInterval = setInterval(() => {
+      const current = document.getElementById('active-timer');
+      if (!current || !current.dataset.startTime) {
+        clearInterval(window._timerInterval);
+        return;
+      }
+      current.textContent = formatDuration(startMs);
+    }, 1000);
+  }
+
+  startTimerTick();
+
+  // Start ticker på nytt etter HTMX-oppdateringer (f.eks. start/stopp)
+  document.body.addEventListener('htmx:afterSwap', startTimerTick);
 </script>
 {{end}}
